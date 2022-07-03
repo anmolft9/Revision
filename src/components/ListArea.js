@@ -2,14 +2,14 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 import { ListTask } from "./ListTask";
 
-export const ListArea = () => {
+export const ListArea = ({ formValue }) => {
   return (
     <Row>
       <Col>
-        <ListTask />
+        <ListTask formValue={formValue} />
       </Col>
       <Col>
-        <ListTask />
+        <ListTask formValue={formValue} />
       </Col>
     </Row>
   );
