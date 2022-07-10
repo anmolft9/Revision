@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { Container } from "react-bootstrap";
+import { Container, NavItem } from "react-bootstrap";
 import { ListForm } from "./components/ListForm";
 import { ListArea } from "./components/ListArea";
 import { useState } from "react";
@@ -12,9 +12,16 @@ function App() {
     setFormValue([...formValue, task]);
   };
 
-  const switchTask = (id, name) => {
-    console.log(id, name);
-    // const switchedArgs = formValue.map();
+  const switchTask = (id, type) => {
+    console.log(id, type);
+    const switchedArgs = formValue.map((item) => {
+      if (item.id === id) {
+        item.type = type;
+      }
+      return item;
+    });
+    console.log(switchedArgs);
+    setFormValue(switchedArgs);
   };
 
   // console.log(formValue);
