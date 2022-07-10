@@ -9,7 +9,7 @@ function App() {
   const [formValue, setFormValue] = useState([]);
 
   const getTheData = (task) => {
-    setFormValue([task]);
+    setFormValue([...formValue, task]);
   };
 
   // console.log(formValue);

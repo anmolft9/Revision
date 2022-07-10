@@ -6,10 +6,10 @@ export const ListArea = ({ formValue }) => {
   return (
     <Row>
       <Col>
-        <ListTask formValue={formValue} />
+        <ListTask name="entry" formValue={formValue} />
       </Col>
       <Col>
-        <ListTask formValue={formValue} />
+        <ListTask name="bad" formValue={formValue} />
       </Col>
     </Row>
   );

@@ -1,22 +1,25 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
 
-export const ListTask = ({ formValue }) => {
-  console.log(formValue);
+export const ListTask = ({ formValue = [] }) => {
+  // console.log(formValue);
   return (
     <Table striped>
       <thead>
         <tr>
-          <th>{formValue.type}</th>
+          <th>Task</th>
+          <th>Hours</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
+        {formValue.map((item) => {
+          return (
+            <tr>
+              <td>{item.tasks}</td>
+              <td>{item.hrs}</td>
+            </tr>
+          );
+        })}
       </tbody>
     </Table>
   );
