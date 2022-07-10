@@ -12,6 +12,11 @@ function App() {
     setFormValue([...formValue, task]);
   };
 
+  const switchTask = (id, name) => {
+    console.log(id, name);
+    // const switchedArgs = formValue.map();
+  };
+
   // console.log(formValue);
   return (
     <div className="wrapper">
@@ -20,7 +25,7 @@ function App() {
         <ListForm getTheData={getTheData} />
 
         {/* here goes the list area */}
-        <ListArea formValue={formValue} />
+        <ListArea formValue={formValue} switchTask={switchTask} />
       </Container>
     </div>
   );
