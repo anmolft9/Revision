@@ -1,7 +1,7 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
 
-export const ListTask = ({ formValue = [] }) => {
+export const ListTask = ({ list = [] }) => {
   // console.log(formValue);
   return (
     <Table striped>
@@ -12,7 +12,7 @@ export const ListTask = ({ formValue = [] }) => {
         </tr>
       </thead>
       <tbody>
-        {formValue.map((item) => {
+        {list.map((item) => {
           return (
             <tr>
               <td>{item.tasks}</td>
