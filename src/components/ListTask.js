@@ -1,13 +1,16 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 
-export const ListTask = ({ list = [], switchTask, arrow }) => {
+export const ListTask = ({ list = [], switchTask, arrow, handleOnCheck }) => {
   // console.log(formValue);
   return (
     <Table striped>
       <thead>
         <tr>
+          <th>
+            <Form.Check type="checkbox" onChange={handleOnCheck} />
+          </th>
           <th>Task</th>
           <th>Hours</th>
           <th>Action</th>
@@ -17,6 +20,9 @@ export const ListTask = ({ list = [], switchTask, arrow }) => {
         {list.map((item) => {
           return (
             <tr>
+              <td>
+                <Form.Check type="checkbox" onChange={handleOnCheck} />
+              </td>
               <td>{item.tasks}</td>
               <td>{item.hrs}</td>
 

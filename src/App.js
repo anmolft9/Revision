@@ -24,6 +24,12 @@ function App() {
     setFormValue(switchedArgs);
   };
 
+  ///handle on Check
+
+  const handleOnCheck = () => {
+    // console.log("clicked");
+  };
+
   // console.log(formValue);
   return (
     <div className="wrapper">
@@ -36,7 +42,11 @@ function App() {
         <ListForm getTheData={getTheData} />
 
         {/* here goes the list area */}
-        <ListArea formValue={formValue} switchTask={switchTask} />
+        <ListArea
+          formValue={formValue}
+          switchTask={switchTask}
+          handleOnCheck={handleOnCheck}
+        />
       </Container>
     </div>
   );
