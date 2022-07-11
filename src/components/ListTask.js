@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 
-export const ListTask = ({ list = [], switchTask }) => {
+export const ListTask = ({ list = [], switchTask, arrow }) => {
   // console.log(formValue);
   return (
     <Table striped>
@@ -21,9 +21,15 @@ export const ListTask = ({ list = [], switchTask }) => {
               <td>{item.hrs}</td>
 
               <td>
-                <Button onClick={() => switchTask(item.id, "bad")}>
-                  <i className="fa-solid fa-arrow-right"></i>
-                </Button>
+                {arrow === "right" ? (
+                  <Button onClick={() => switchTask(item.id, "bad")}>
+                    <i className="fa-solid fa-arrow-right"></i>
+                  </Button>
+                ) : (
+                  <Button onClick={() => switchTask(item.id, "entry")}>
+                    <i className="fa-solid fa-arrow-left"></i>
+                  </Button>
+                )}
               </td>
             </tr>
           );

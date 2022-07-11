@@ -13,14 +13,14 @@ function App() {
   };
 
   const switchTask = (id, type) => {
-    console.log(id, type);
+    // console.log(id, type);
     const switchedArgs = formValue.map((item) => {
       if (item.id === id) {
         item.type = type;
       }
       return item;
     });
-    console.log(switchedArgs);
+    // console.log(switchedArgs);
     setFormValue(switchedArgs);
   };
 
@@ -28,6 +28,10 @@ function App() {
   return (
     <div className="wrapper">
       <Container>
+        <div className="text-center mb-5 pt-5">
+          <h1>My Not-to Do List</h1>
+        </div>
+
         {/* form component */}
         <ListForm getTheData={getTheData} />
 

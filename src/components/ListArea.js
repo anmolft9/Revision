@@ -9,7 +9,12 @@ export const ListArea = ({ formValue, switchTask }) => {
   return (
     <Row>
       <Col>
-        <ListTask name="entry" list={entryList} switchTask={switchTask} />
+        <ListTask
+          name="entry"
+          arrow="right"
+          list={entryList}
+          switchTask={switchTask}
+        />
       </Col>
       <Col>
         <ListTask name="bad" list={badList} switchTask={switchTask} />
