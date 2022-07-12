@@ -7,6 +7,7 @@ import { useState } from "react";
 
 function App() {
   const [formValue, setFormValue] = useState([]);
+  const [ids, setIds] = useState([]);
 
   const getTheData = (task) => {
     setFormValue([...formValue, task]);
@@ -29,8 +30,25 @@ function App() {
   const handleOnCheck = (e) => {
     // console.log("clicked");
     const { value, checked } = e.target;
-    console.log(checked, value);
+    // console.log(checked, value);
     // console.log(e.value);
+
+    if (value === "entry" || value === "bad") {
+      let toDelete = [];
+      formValue.forEach((item) => {
+        // console.log(item);
+        if (item.type === value) {
+          toDelete.push(item.id);
+        }
+      });
+      if (checked) {
+        setIds([...ids, ...toDelete]);
+      } else {
+        const tempArgs = ids.filter((id) => !toDelete.includes(id));
+        setIds(tempArgs);
+      }
+      return;
+    }
   };
 
   // console.log(formValue);
