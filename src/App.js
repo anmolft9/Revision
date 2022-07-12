@@ -26,8 +26,11 @@ function App() {
 
   ///handle on Check
 
-  const handleOnCheck = () => {
+  const handleOnCheck = (e) => {
     // console.log("clicked");
+    const { value, checked } = e.target;
+    console.log(checked, value);
+    // console.log(e.value);
   };
 
   // console.log(formValue);
