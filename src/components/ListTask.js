@@ -8,6 +8,7 @@ export const ListTask = ({
   arrow,
   handleOnCheck,
   name,
+  ids,
 }) => {
   // console.log(formValue);
   return (
@@ -30,6 +31,7 @@ export const ListTask = ({
                 <Form.Check
                   type="checkbox"
                   value={item.id}
+                  checked={ids.includes(item.id)}
                   onChange={handleOnCheck}
                 />
               </td>

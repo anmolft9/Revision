@@ -41,13 +41,25 @@ function App() {
           toDelete.push(item.id);
         }
       });
+
+      // console.log(toDelete, value);
+
       if (checked) {
         setIds([...ids, ...toDelete]);
+        // console.log(ids);
       } else {
         const tempArgs = ids.filter((id) => !toDelete.includes(id));
         setIds(tempArgs);
       }
       return;
+    }
+    if (checked) {
+      setIds([...ids, value]);
+      // console.log(ids);
+    } else {
+      const removeIds = ids.filter((item) => item !== value);
+      // console.log(removeIds);
+      setIds(removeIds);
     }
   };
 
