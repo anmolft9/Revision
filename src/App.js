@@ -79,6 +79,7 @@ function App() {
           formValue={formValue}
           switchTask={switchTask}
           handleOnCheck={handleOnCheck}
+          ids={ids}
         />
       </Container>
     </div>

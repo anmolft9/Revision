@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 import { ListTask } from "./ListTask";
 
-export const ListArea = ({ formValue, switchTask, handleOnCheck }) => {
+export const ListArea = ({ formValue, switchTask, handleOnCheck, ids }) => {
   const entryList = formValue.filter(({ type }) => type === "entry");
   const badList = formValue.filter(({ type }) => type === "bad");
 
@@ -15,6 +15,7 @@ export const ListArea = ({ formValue, switchTask, handleOnCheck }) => {
           list={entryList}
           switchTask={switchTask}
           handleOnCheck={handleOnCheck}
+          ids={ids}
         />
       </Col>
       <Col>
@@ -23,6 +24,7 @@ export const ListArea = ({ formValue, switchTask, handleOnCheck }) => {
           list={badList}
           switchTask={switchTask}
           handleOnCheck={handleOnCheck}
+          ids={ids}
         />
       </Col>
     </Row>
