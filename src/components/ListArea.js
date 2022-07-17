@@ -9,6 +9,9 @@ export const ListArea = ({ formValue, switchTask, handleOnCheck, ids }) => {
   return (
     <Row>
       <Col>
+        <div className="d-flex justify-content-center mb-2">
+          <h3>Entry List</h3>
+        </div>
         <ListTask
           name="entry"
           arrow="right"
@@ -18,7 +21,12 @@ export const ListArea = ({ formValue, switchTask, handleOnCheck, ids }) => {
           ids={ids}
         />
       </Col>
+
       <Col>
+        <div className="d-flex justify-content-center mb-2">
+          <h3>Bad List</h3>
+        </div>
+
         <ListTask
           name="bad"
           list={badList}
