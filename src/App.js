@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { Container, NavItem } from "react-bootstrap";
+import { Container, NavItem, Button } from "react-bootstrap";
 import { ListForm } from "./components/ListForm";
 import { ListArea } from "./components/ListArea";
 import { useState } from "react";
@@ -63,6 +63,14 @@ function App() {
     }
   };
 
+  /////Handle ON Delete
+  const handleOnDelete = () => {
+    console.log(ids);
+    const filteredArr = formValue.filter((item) => !ids.includes(item.id));
+    setFormValue(filteredArr);
+    setIds([]);
+  };
+
   // console.log(formValue);
   return (
     <div className="wrapper">
@@ -81,6 +89,15 @@ function App() {
           handleOnCheck={handleOnCheck}
           ids={ids}
         />
+
+        {/* delete button */}
+        <div>
+          {ids.length > 0 && (
+            <Button onClick={handleOnDelete} variant="danger">
+              Delete
+            </Button>
+          )}
+        </div>
       </Container>
     </div>
   );
