@@ -1,2 +1,18 @@
 ###Get Post
-GET http://localhost:8000
+GET http://localhost:8000/
+Content-Type: application/json
+
+
+###Get Post
+GET http://localhost:8000/api/v1/task/
+Content-Type: application/json
+
+
+###add new task
+Post http://localhost:8000/api/v1/task/
+Content-Type: application/json
+
+{
+    "task": "coding",
+    "hr": "10"
+}
