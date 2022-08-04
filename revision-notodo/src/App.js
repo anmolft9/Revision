@@ -4,14 +4,17 @@ import { Container, NavItem, Button } from "react-bootstrap";
 import { ListForm } from "./components/ListForm";
 import { ListArea } from "./components/ListArea";
 import { useState } from "react";
+import { postTask } from "./components/helpers/axiosHelper";
 
 function App() {
   const [formValue, setFormValue] = useState([]);
   const [ids, setIds] = useState([]);
 
-  const getTheData = (task) => {
+  const getTheData = async (task) => {
     setFormValue([...formValue, task]);
-    // console.log(task);
+
+    const result = await postTask(task);
+    console.log(result, "flag");
   };
 
   const switchTask = (id, type) => {

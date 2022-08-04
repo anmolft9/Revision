@@ -2,7 +2,7 @@ import axios from "axios";
 
 const apiEp = "http://localhost:8000/api/v1/task";
 
-const fetchTasks = async () => {
+export const fetchTasks = async () => {
   try {
     const { data } = await axios.get(apiEp);
     return data;
@@ -14,9 +14,9 @@ const fetchTasks = async () => {
   }
 };
 
-export const postTask = (obj) => {
+export const postTask = async (obj) => {
   try {
-    const {data} = await axios.post(apiEp, obj)
+    const { data } = await axios.post(apiEp, obj);
     return data;
   } catch (error) {
     return {
