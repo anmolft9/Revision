@@ -11,6 +11,7 @@ function App() {
 
   const getTheData = (task) => {
     setFormValue([...formValue, task]);
+    // console.log(task);
   };
 
   const switchTask = (id, type) => {

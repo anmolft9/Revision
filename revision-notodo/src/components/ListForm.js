@@ -2,7 +2,6 @@ import React from "react";
 import Form from "react-bootstrap/Form";
 import { Row, Col, Button } from "react-bootstrap";
 import { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 
 const initialState = {
   tasks: "",
@@ -21,7 +20,8 @@ export const ListForm = ({ getTheData }) => {
   const handleOnSubmit = (e) => {
     e.preventDefault();
 
-    getTheData({ ...form, id: uuidv4() });
+    getTheData({ ...form });
+    console.log(form);
   };
   return (
     <Form onSubmit={handleOnSubmit}>

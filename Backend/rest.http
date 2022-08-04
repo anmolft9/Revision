@@ -16,3 +16,25 @@ Content-Type: application/json
     "task": "coding",
     "hr": "10"
 }
+
+
+###add new task
+PATCH  http://localhost:8000/api/v1/task/
+Content-Type: application/json
+
+{
+    "_id":"62e8c56e9fc2efa2181dcd7d",
+    "type":"bad"
+}
+
+
+###add new task
+DELETE  http://localhost:8000/api/v1/task/
+Content-Type: application/json
+
+{
+    "ids": [
+        "62dfac4c4910774e768ae9d7",
+        "62dfaf3cab0d0a3df4b71410"
+    ]
+}

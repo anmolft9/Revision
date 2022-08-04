@@ -1,22 +1,16 @@
 import express from "express";
-import { insertTask, getSingleTask, getTask } from "./Model/taskModel.js";
+import {
+  insertTask,
+  getSingleTask,
+  getTask,
+  deleteTaskById,
+  updateTask,
+  deleteManyTask,
+} from "./Model/taskModel.js";
 
 const router = express.Router();
 
-// router.get("/", async (req, res, next) => {
-//   //   console.log(req.body);
-//   const results = await getSingleTask(req.body);
-//   try {
-//     res.json({
-//       status: "success",
-//       message: "get route",
-//       results,
-//     });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// });
-
+///Get Methods
 router.get("/:_id?", async (req, res, next) => {
   //   console.log(req.body);
   const { _id } = req.params;
@@ -32,19 +26,7 @@ router.get("/:_id?", async (req, res, next) => {
   }
 });
 
-// router.post("/", (req, res, next) => {
-//   //   console.log(req.body);
-//   try {
-//     res.json({
-//       status: "success",
-//       message: "get route",
-//     });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// });
-
-///insert task
+///Post Method
 router.post("/", async (req, res, next) => {
   //   console.log(req.body);
 
@@ -58,7 +40,45 @@ router.post("/", async (req, res, next) => {
       result,
     });
   } catch (error) {
-    console.log(error);
+    next(error);
+  }
+});
+
+///Patch Method
+router.patch("/", async (req, res, next) => {
+  //   console.log(req.body);
+
+  const { _id, type } = req.body;
+  //   console.log(req.body);
+  const result = await updateTask(_id, type);
+  //   console.log(result);
+
+  try {
+    res.json({
+      status: "success",
+      message: "updated task",
+      result,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+///Delete Method
+router.delete("/", async (req, res, next) => {
+  //   console.log(req.body);
+  const { ids } = req.body;
+  const result = await deleteManyTask(ids);
+  //   console.log(result);
+
+  try {
+    res.json({
+      status: "success",
+      message: "Deleted task",
+      result,
+    });
+  } catch (error) {
+    next(error);
   }
 });
 
