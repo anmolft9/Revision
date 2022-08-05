@@ -1,10 +1,13 @@
 import express from "express";
+import cors from "cors";
+import helmet from "helmet";
 
 const app = express();
 const PORT = 8000;
 
 app.use(express.json());
-
+app.use(cors());
+app.use(helmet());
 ///connect the database
 
 import { dbConnect } from "./routers/config/dbConfig.js";
