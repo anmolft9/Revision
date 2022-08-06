@@ -30,15 +30,24 @@ router.get("/:_id?", async (req, res, next) => {
 router.post("/", async (req, res, next) => {
   //   console.log(req.body);
 
-  const result = await insertTask(req.body);
   //   console.log(result);
 
   try {
-    res.json({
-      status: "success",
-      message: "insert task route",
-      result,
-    });
+    // console.log("check");
+    const result = await insertTask(req.body);
+    // console.log(result);
+
+    result?._id
+      ? res.json({
+          status: "success",
+          message: "insert task route",
+          result,
+        })
+      : res.json({
+          status: "failed",
+          message: "failed",
+          result,
+        });
   } catch (error) {
     next(error);
   }

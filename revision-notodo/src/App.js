@@ -16,7 +16,7 @@ function App() {
 
     const result = await postTask(task);
     // console.log(result);
-    console.log(result, "flag");
+    // console.log(result, "flag");
   };
 
   const switchTask = (id, type) => {

@@ -28,7 +28,7 @@ export const ListForm = ({ getTheData }) => {
           <Form.Control
             type="text"
             placeholder="Tasks"
-            name="tasks"
+            name="task"
             onChange={handleOnChange}
           />
         </Col>
@@ -36,7 +36,7 @@ export const ListForm = ({ getTheData }) => {
           <Form.Control
             type="number"
             placeholder="Hours"
-            name="hrs"
+            name="hr"
             onChange={handleOnChange}
           />
         </Col>
