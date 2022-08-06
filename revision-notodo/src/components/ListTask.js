@@ -30,8 +30,8 @@ export const ListTask = ({
               <td>
                 <Form.Check
                   type="checkbox"
-                  value={item.id}
-                  checked={ids.includes(item.id)}
+                  value={item._id}
+                  checked={ids.includes(item._id)}
                   onChange={handleOnCheck}
                 />
               </td>

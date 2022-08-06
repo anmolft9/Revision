@@ -19,9 +19,7 @@ export const ListForm = ({ getTheData }) => {
   // console.log(form);
   const handleOnSubmit = (e) => {
     e.preventDefault();
-
-    getTheData({ ...form });
-    console.log(form);
+    getTheData(form);
   };
   return (
     <Form onSubmit={handleOnSubmit}>

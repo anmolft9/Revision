@@ -12,8 +12,10 @@ function App() {
 
   const getTheData = async (task) => {
     setFormValue([...formValue, task]);
+    // console.log(task);
 
     const result = await postTask(task);
+    // console.log(result);
     console.log(result, "flag");
   };
 

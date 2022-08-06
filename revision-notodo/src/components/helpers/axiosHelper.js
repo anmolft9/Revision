@@ -16,7 +16,10 @@ export const fetchTasks = async () => {
 
 export const postTask = async (obj) => {
   try {
+    console.log(obj);
     const { data } = await axios.post(apiEp, obj);
+    console.log(data);
+    // console.log(data);
     return data;
   } catch (error) {
     return {
