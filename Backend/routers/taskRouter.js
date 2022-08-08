@@ -76,7 +76,7 @@ router.patch("/", async (req, res, next) => {
 ///Delete Method
 router.delete("/", async (req, res, next) => {
   //   console.log(req.body);
-  const { ids } = req.body;
+  const ids = req.body;
   const result = await deleteManyTask(ids);
   //   console.log(result);
 

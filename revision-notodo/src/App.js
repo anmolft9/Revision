@@ -5,6 +5,7 @@ import { ListForm } from "./components/ListForm";
 import { ListArea } from "./components/ListArea";
 import { useEffect, useState } from "react";
 import {
+  deleteServerTask,
   fetchTasks,
   postTask,
   switchServerTask,
@@ -65,7 +66,7 @@ function App() {
       formValue.forEach((item) => {
         // console.log(item);
         if (item.type === value) {
-          toDelete.push(item.id);
+          toDelete.push(item._id);
         }
       });
 
@@ -91,11 +92,22 @@ function App() {
   };
 
   /////Handle ON Delete
-  const handleOnDelete = () => {
-    console.log(ids);
-    const filteredArr = formValue.filter((item) => !ids.includes(item.id));
-    setFormValue(filteredArr);
-    setIds([]);
+  const handleOnDelete = async () => {
+    // console.log(ids);
+    // const filteredArr = formValue.filter((item) => !ids.includes(item.id));
+    // setFormValue(filteredArr);
+    // setIds([]);
+
+    if (!window.confirm("Are you sure you want to delete")) {
+      return;
+    }
+
+    const data = await deleteServerTask(ids);
+
+    if (data.status === "success") {
+      getTaskFromServer();
+      setIds([]);
+    }
   };
 
   // console.log(formValue);

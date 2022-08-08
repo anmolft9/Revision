@@ -41,3 +41,16 @@ export const switchServerTask = async (obj) => {
     };
   }
 };
+
+export const deleteServerTask = async (ids) => {
+  // console.log(obj);
+  try {
+    const { data } = await axios.delete(apiEp, { data: ids });
+    return data;
+  } catch (error) {
+    return {
+      status: "error",
+      message: error.message,
+    };
+  }
+};
