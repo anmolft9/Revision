@@ -4,7 +4,11 @@ import { Container, NavItem, Button } from "react-bootstrap";
 import { ListForm } from "./components/ListForm";
 import { ListArea } from "./components/ListArea";
 import { useEffect, useState } from "react";
-import { fetchTasks, postTask } from "./components/helpers/axiosHelper";
+import {
+  fetchTasks,
+  postTask,
+  switchServerTask,
+} from "./components/helpers/axiosHelper";
 
 function App() {
   const [formValue, setFormValue] = useState([]);
@@ -16,7 +20,7 @@ function App() {
 
   const getTaskFromServer = async () => {
     const data = await fetchTasks();
-    console.log(data);
+    // console.log(data);
 
     data.status === "success" && setFormValue(data.results);
   };
@@ -33,16 +37,19 @@ function App() {
     result.status === "success" && getTaskFromServer();
   };
 
-  const switchTask = (id, type) => {
+  const switchTask = async (_id, type) => {
     // console.log(id, type);
-    const switchedArgs = formValue.map((item) => {
-      if (item.id === id) {
-        item.type = type;
-      }
-      return item;
-    });
-    // console.log(switchedArgs);
-    setFormValue(switchedArgs);
+    // const switchedArgs = formValue.map((item) => {
+    //   if (item._id === _id) {
+    //     item.type = type;
+    //   }
+    //   return item;
+    // });
+    // // console.log(switchedArgs);
+    // setFormValue(switchedArgs);
+
+    const data = await switchServerTask({ _id, type });
+    data.status === "success" && getTaskFromServer();
   };
 
   ///handle on Check
