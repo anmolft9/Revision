@@ -10,6 +10,7 @@ export const ListTask = ({
   name,
   ids,
 }) => {
+  // console.log(list);
   // console.log(formValue);
   return (
     <Table striped>
@@ -35,8 +36,8 @@ export const ListTask = ({
                   onChange={handleOnCheck}
                 />
               </td>
-              <td>{item.tasks}</td>
-              <td>{item.hrs}</td>
+              <td>{item.task}</td>
+              <td>{item.hr}</td>
 
               <td>
                 {arrow === "right" ? (

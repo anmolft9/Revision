@@ -3,8 +3,11 @@ import { Row, Col } from "react-bootstrap";
 import { ListTask } from "./ListTask";
 
 export const ListArea = ({ formValue, switchTask, handleOnCheck, ids }) => {
+  // console.log(formValue);
   const entryList = formValue.filter(({ type }) => type === "entry");
   const badList = formValue.filter(({ type }) => type === "bad");
+
+  // console.log(entryList, badList);
 
   return (
     <Row>

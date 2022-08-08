@@ -3,12 +3,23 @@ import "./App.css";
 import { Container, NavItem, Button } from "react-bootstrap";
 import { ListForm } from "./components/ListForm";
 import { ListArea } from "./components/ListArea";
-import { useState } from "react";
-import { postTask } from "./components/helpers/axiosHelper";
+import { useEffect, useState } from "react";
+import { fetchTasks, postTask } from "./components/helpers/axiosHelper";
 
 function App() {
   const [formValue, setFormValue] = useState([]);
   const [ids, setIds] = useState([]);
+
+  useEffect(() => {
+    getTaskFromServer();
+  }, []);
+
+  const getTaskFromServer = async () => {
+    const data = await fetchTasks();
+    console.log(data);
+
+    data.status === "success" && setFormValue(data.results);
+  };
 
   const getTheData = async (task) => {
     setFormValue([...formValue, task]);
@@ -17,6 +28,9 @@ function App() {
     const result = await postTask(task);
     // console.log(result);
     // console.log(result, "flag");
+    // fetchTasks(result);
+
+    result.status === "success" && getTaskFromServer();
   };
 
   const switchTask = (id, type) => {
